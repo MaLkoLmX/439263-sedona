@@ -9,12 +9,12 @@
   </head>
   <body>
     <header class="page-header">
-      <nav class="main-nav">
+      <nav class="main-nav main-nav--opened main-nav--nojs">
         <button class="main-nav__toggle" type="button"><span class="visually-hidden">Открыть меню</span></button>
         <div class="main-nav__wrapper">
           <button class="main-nav__close" type="button"><span class="visually-hidden">Закрыть меню</span></button>
           <ul class="main-nav__list site-list">
-            <li class="site-list__item site-list__item--active">
+            <li class="site-list__item">
               <a class="site-list__link">Главная</a>
             </li>
             <li class="site-list__item">
@@ -126,5 +126,24 @@
         </div>
       </div>
     </footer>
+
+  <script>
+    var navMain = document.querySelector('.main-nav__list');
+    var navToggle = document.querySelector('.main-nav__toggle');
+    var navClose = document.querySelector('.main-nav__close');
+
+    navMain.classList.remove('main-nav--nojs');
+
+    navClose.addEventListener("click", function (evt) {
+      evt.preventDefault();
+      navMain.classList.add("main-nav--closed");
+    });
+
+    navToggle.addEventListener("click", function (evt) {
+      evt.preventDefault();
+      navMain.classList.add("main-nav--opened");
+    });
+  </script>
+
   </body>
 </html>
